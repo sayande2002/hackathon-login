@@ -50,7 +50,6 @@ const Homepage = () => {
       <img
         className="h-40 aspect-square rounded-[50%] border-black border-2 cursor-pointer object-cover"
         ref={avatarSrc}
-        id="imgTemplate"
         src={avatar ?? Avatar}
         alt="avatar"
         onClick={(event) => {
