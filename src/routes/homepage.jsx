@@ -71,12 +71,14 @@ const Homepage = () => {
         onChange={handleChange}
         name="username"
         placeholder="Username"
+        autoComplete="on"
       />
       <CustomInput
         type="password"
         onChange={handleChange}
         name="password"
         placeholder="Password"
+        autoComplete="on"
       />
 
       <div className="flex gap-3">
@@ -98,7 +100,7 @@ const Homepage = () => {
         <label>Staff</label>
       </div>
 
-      <CustomButton>Login</CustomButton>
+      <CustomButton type="submit">Login</CustomButton>
     </form>
   );
 };
