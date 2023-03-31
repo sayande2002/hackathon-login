@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DataContext } from "../context/datacontext";
 import CustomInput from "../components/custominput";
 import CustomButton from "../components/custombutton";
-
+import Avatar from "../assests/user-icon.jpg";
 const defaultformFields = {
   avatar: undefined,
   username: undefined,
@@ -13,6 +13,8 @@ const defaultformFields = {
 
 const Homepage = () => {
   const navigate = useNavigate();
+  const avatarInputRef = useRef();
+  const avatarSrc = useRef();
   const { setFields } = useContext(DataContext);
 
   const [formFields, setFormFields] = useState(defaultformFields);
@@ -28,13 +30,23 @@ const Homepage = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
+  const fileChange = (event) => {
+    console.log(event.target.files[0]);
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+      document.getElementById("imgTemplate").src = reader.result;
+    };
+  };
+
   return (
     <form
       onSubmit={handleSubmit}
       className="flex flex-col items-center justify-center gap-5"
     >
       <p className="text-3xl font-bold text-center">Login Page</p>
-      {/* <img
+      <img
         className="h-40 aspect-square rounded-[50%] border-black border-2 cursor-pointer object-cover"
         ref={avatarSrc}
         id="imgTemplate"
@@ -52,7 +64,7 @@ const Homepage = () => {
         onChange={fileChange}
         className="hidden"
         ref={avatarInputRef}
-      /> */}
+      />
 
       <CustomInput
         type="text"
