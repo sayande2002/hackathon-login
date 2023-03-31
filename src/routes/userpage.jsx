@@ -15,7 +15,7 @@ const Userpage = () => {
         src={fields?.avatar ?? Avatar}
         alt="avatar"
       />
-      <table className="w-[480px] border-black border-2">
+      <table className="min-w-[400px] border-black border-2">
         <thead>
           <tr className="bg-black text-white">
             <th className="border border-white">User Name</th>
