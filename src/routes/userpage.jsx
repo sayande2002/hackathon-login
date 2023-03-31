@@ -11,8 +11,8 @@ const Userpage = () => {
     <div className="flex flex-col items-center justify-center gap-4">
       <p className="text-3xl font-bold text-center">User Page</p>
       <img
-        className="h-40 aspect-square rounded-[50%] border-black border-2"
-        src={Avatar}
+        className="h-40 aspect-square rounded-[50%] border-black border-2 cursor-pointer object-cover"
+        src={fields?.avatar ?? Avatar}
         alt="avatar"
       />
       <table className="w-[480px] border-black border-2">

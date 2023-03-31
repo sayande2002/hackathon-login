@@ -4,6 +4,7 @@ import { DataContext } from "../context/datacontext";
 import CustomInput from "../components/custominput";
 import CustomButton from "../components/custombutton";
 import Avatar from "../assests/user-icon.jpg";
+
 const defaultformFields = {
   avatar: undefined,
   username: undefined,
@@ -31,12 +32,12 @@ const Homepage = () => {
   };
 
   const fileChange = (event) => {
-    console.log(event.target.files[0]);
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function () {
-      document.getElementById("imgTemplate").src = reader.result;
+      avatarSrc.current.src = reader.result;
+      setFormFields({ ...formFields, avatar: avatarSrc.current.src });
     };
   };
 
@@ -50,7 +51,7 @@ const Homepage = () => {
         className="h-40 aspect-square rounded-[50%] border-black border-2 cursor-pointer object-cover"
         ref={avatarSrc}
         id="imgTemplate"
-        src={avatar}
+        src={avatar ?? Avatar}
         alt="avatar"
         onClick={(event) => {
           event.preventDefault();
