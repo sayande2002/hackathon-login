@@ -85,9 +85,16 @@ const Homepage = () => {
           value="Student"
           name="user"
           onChange={handleChange}
+          className="cursor-pointer"
         />
         <label>Student</label>
-        <input type="radio" value="Staff" name="user" onChange={handleChange} />
+        <input
+          type="radio"
+          value="Staff"
+          name="user"
+          onChange={handleChange}
+          className="cursor-pointer"
+        />
         <label>Staff</label>
       </div>
 
